@@ -42,7 +42,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_12_111618) do
   end
 
   create_table "profiles", force: :cascade do |t|
-    t.bigint "user_id", null: false
+    
     t.string "first_name"
     t.string "last_name"
     t.datetime "created_at", null: false
@@ -51,6 +51,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_12_111618) do
     t.string "city"
     t.integer "postcode"
     t.string "state"
+    t.bigint "user_id", null: false
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 

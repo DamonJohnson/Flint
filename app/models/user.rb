@@ -5,4 +5,16 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_one :profile, dependent: :destroy
   has_many :items, dependent: :destroy
+  
+  
+  # after_create :build_profile
+
+  # def build_profile
+
+  #   @profile = Profile.create
+  #   @profile.user_id = @user.id
+  #   Profile.create(user: self) # Associations must be defined correctly for this syntax, avoids using ID's directly.
+  # end
+  
+
 end
