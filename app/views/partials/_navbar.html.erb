@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <html>
+    <head>
+     <header>
+    <style>
+      .navbar .nav-link {
+        color:  #ff5600!important;
+      }
+
+      .navbar .nav-link:hover {
+        color:  black!important;
+      }
+
+
+    </style>
+    </head>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">
+    <%= image_tag 'logo', class: "nav-logo", style: 'height:50px' %>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <%= link_to 'View listings', items_path, class: 'nav-link' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Share your own', new_path, class: 'nav-link' %>
+        </li>
+      </ul>
+      <span class="navbar-text">
+        <a class="nav-link" href="/users/sign_in" >Log in</a>
+      </span>
+      <span class="navbar-text">
+        <a class="nav-link" href="/users/sign_up"'>Sign up</a>
+      </span>
+    </div>
+  </div>
+</nav>
