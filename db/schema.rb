@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_12_110311) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_12_111618) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -28,9 +28,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_12_110311) do
     t.datetime "updated_at", null: false
     t.bigint "category_id", null: false
     t.bigint "user_id", null: false
-    t.bigint "location_id", null: false
     t.index ["category_id"], name: "index_items_on_category_id"
-    t.index ["location_id"], name: "index_items_on_location_id"
     t.index ["user_id"], name: "index_items_on_user_id"
   end
 
@@ -70,7 +68,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_12_110311) do
   end
 
   add_foreign_key "items", "categories"
-  add_foreign_key "items", "locations"
   add_foreign_key "items", "users"
   add_foreign_key "profiles", "users"
 end
