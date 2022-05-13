@@ -15,15 +15,16 @@ class ItemsController < ApplicationController
   end
 
   def new
-    @item = Item.new
+    Item.new
   end
 
   def create
-    @item = Item.create(item_params)
-    redirect_to @item
+    item = current_user.items.create(item_params)
+    redirect_to item
   end
 
   def edit
+    
   end
 
   def update

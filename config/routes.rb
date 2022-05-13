@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   get 'items', to: 'items#index', as: 'items'
   get 'items/new', to: 'items#new', as: 'new'
   get 'items/:id', to: 'items#show', as: 'item'
-  post 'items', to: 'items#create'
+  post 'items/new', to: 'items#create'
   get 'items/edit/:id', to: 'items#edit'
   patch 'items/:id', to: 'items#update'
   delete 'items/:id', to: 'items#destroy'
