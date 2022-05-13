@@ -12,6 +12,10 @@
     <%= f.label :category_id %>
     <%= f.collection_select :category_id, @categories, :id, :name %>
   </fieldset>
+   <fieldset class="mb-2">
+    <%= f.label :price %>
+    <%= f.number_field :price %>
+  </fieldset>
   <fieldset>
     <%= f.submit class: 'btn btn-primary' %>
   </fieldset>

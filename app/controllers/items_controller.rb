@@ -11,6 +11,7 @@ class ItemsController < ApplicationController
   end
   
   def show
+    @item = Item.find(params[:id])
   end
 
   def new
@@ -18,8 +19,8 @@ class ItemsController < ApplicationController
   end
 
   def create
-    item = Item.create(item_params)
-    redirect_to item 
+    @item = Item.create(item_params)
+    redirect_to @item
   end
 
   def edit

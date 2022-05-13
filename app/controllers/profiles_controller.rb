@@ -27,10 +27,11 @@ def create
 end
 
   def show
+    @profile = Profile.find(params[:id])
   end
 
 def edit
-  @profile = current_user.profile.find(params[:id])
+  
 end
 
 def update
