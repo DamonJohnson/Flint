@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
   
-  get 'profiles/new', to: 'profiles#new', as: 'profiles'
+  get 'profile/new', to: 'profiles#new', as: 'new_profile'
   get 'profiles/:id', to: 'profiles#show', as: 'profile'
   get 'profiles/:id/edit', to: 'profiles#edit'
   patch 'profiles/:id', to: 'profiles#update'
-  post 'profiles/new', to: 'profiles#create'
+  post 'profile/new', to: 'profiles#create'
   delete 'profiles/:id', to: 'profiles#destroy'
 
 
