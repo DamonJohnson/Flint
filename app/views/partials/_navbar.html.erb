@@ -30,7 +30,7 @@
                 <%= link_to 'Share your own', new_path, class: 'nav-link' %>
               </li>
             </ul>
-            <% if user_signed_in? && current_user.profile.present? %>
+            <% if user_signed_in? && user_has_profile?  %>
               <span class="navbar-text">
                 <%= link_to 'Profile',  profile_path(current_user.profile.id), class: 'nav-link' %>
               </span>
