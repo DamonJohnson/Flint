@@ -35,10 +35,10 @@ def edit
 end
 
 def update
-  @profile = current_user.profile.find(params[:id])
-  if @profile.update_attributes(profile_params)
+  @profile = Profile.find(params[:id])
+  if @profile.update(profile_params)
     flash[:success] = "Successfully updated"    # Optional
-    redirect_to user_path
+    redirect_to show
   else
     flash[:error] = "Error"       # Optional
     render :edit
@@ -59,4 +59,6 @@ end
   def list_states
    @states = ['New South Wales', 'Victoria', 'Queensland', 'Western Australia', 'South Australia', 'Tasmania', 'Australian Capital Territory', 'Northern Territory']
   end
+
+ 
 end

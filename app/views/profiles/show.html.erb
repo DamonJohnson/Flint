@@ -1,3 +1,13 @@
-<h1>Profiles#show</h1>
+<h1><%= @profile.first_name %> <%= @profile.last_name %></p>
 
-<p>Name: <%@profile.first_name %></p>
+<% if request.fullpath == profile_path(current_user.profile.id) %>
+  
+<% end %>
+
+<p>Email: <%=current_user.email %></p>
+<p>Address</p>
+<p><%= @profile.address %></p>
+<p><%= @profile.city %></p>
+<p><%= @profile.state %></p>
+<p><%= @profile.postcode %></p>
+
