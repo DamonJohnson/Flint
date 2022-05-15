@@ -13,6 +13,6 @@
 
 <%# Use the check url method that was used for show profile %>
   <div class="btn-toolbar">
-    <%= link_to('Edit', edit_book_path(@book), class: 'btn btn-warning me-2') if policy(@book).update? %>
-    <%= button_to('Delete', @book, class: 'btn btn-danger', method: :delete, form: { data: { turbo_confirm: "Are you sure you want to delete '#{@book.title}' ?" } }) if policy(@book).destroy? %>
+    <%= link_to('Edit Item', edit_item_path(@item), class: 'btn btn-warning me-2') if @item.user_id == current_user.id %> 
+    <%= button_to('Delete', @item, class: 'btn btn-danger', method: :delete, form: { data: { turbo_confirm: "Are you sure you want to delete '#{@item.title}' ?" } }) if @item.user_id == current_user.id %>
   </div>

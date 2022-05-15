@@ -19,18 +19,24 @@ class ItemsController < ApplicationController
   end
 
   def create
-    item = current_user.items.create(item_params)
-    redirect_to item
+    @item = current_user.items.create(item_params)
+    flash[:success] = "Item listed. Thank for sharing"
+    redirect_to @item
   end
 
   def edit
     
   end
 
-  def update
-    @item.update(item_params)
-    redirect_to @item
+  def update 
+  if @item.update(require_params)
+    flash[:success] = "Successfully updated"   
+    redirect_to show
+  else
+    flash[:error] = "Error"   
+    render :edit
   end
+end
 
   def destroy
     @item.destroy
@@ -50,6 +56,10 @@ class ItemsController < ApplicationController
   # params.permit method returns strong params and accepts only the specified parameters and removes controller and action. This protects against SQL injection.
   def item_params
     return params.permit(:title, :description, :price, :user_id, :category_id)
+  end
+
+   def require_params
+    return params.require(:item).permit(:title, :description, :price, :user_id, :category_id)
   end
 
 end

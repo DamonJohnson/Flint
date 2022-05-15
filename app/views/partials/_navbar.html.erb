@@ -4,6 +4,7 @@
     <head>
       <header>
         <style>
+
           .navbar .nav-link {
             color:  #ff5600!important;
           }
@@ -11,9 +12,21 @@
           .navbar .nav-link:hover {
             color:  black!important;
           }
+
+          .btn-nav {
+            color:  #ff5600!important;
+            background: transparent !important;
+            border: none !important;
+          }
+
+          .btn-nav:hover {
+            color:  black!important;
+          }
+
+
         </style>
       </head>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light"k>
         <div class="container-fluid">
           <a class="navbar-brand" href="/">
             <%= image_tag 'logo', class: "nav-logo", style: 'height:50px' %>
@@ -35,11 +48,10 @@
                 <%= link_to 'Profile',  profile_path(current_user.profile.id), class: 'nav-link' %>
               </span>
               <div class="navbar-text">
-              <%= button_to 'Logout', destroy_user_session_path,  class: 'nav-link', method: :delete, form: { data: { turbo_confirm: "Are you sure you want to log out? " } } %>
+              <%= button_to 'Logout', destroy_user_session_path,  class: 'btn-nav', method: :delete, form: { data: { turbo_confirm: "Are you sure you want to log out? " } } %>
             </div>
             <% elsif user_signed_in? %>
             <div class="navbar-text">
-              <%= button_to 'Logout', destroy_user_session_path,  class: 'nav-link', method: :delete, form: { data: { turbo_confirm: "Are you sure you want to log out? " } } %>
             </div>
             <% else %>
               <span class="navbar-text">
@@ -52,3 +64,4 @@
           </div>
         </div>
       </nav>
+
