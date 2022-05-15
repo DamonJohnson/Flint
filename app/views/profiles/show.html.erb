@@ -1,13 +1,29 @@
-<h1><%= @profile.first_name %> <%= @profile.last_name %></p>
+<style>
+  p{
+      font-size: 1rem;
+  }
 
+<<<<<<< HEAD
 <% if request.fullpath == profile_path(current_user.profile.id) %>
   <%# DAMON! Create an edit button here. Button bar with edit and delete for item. %>
 <% end %>
+=======
+  .profile-container{
+      padding-top: 3rem;
+  }
+</style>
+>>>>>>> master
 
-<p>Email: <%=current_user.email %></p>
-<p>Address</p>
-<p><%= @profile.address %></p>
-<p><%= @profile.city %></p>
-<p><%= @profile.state %></p>
-<p><%= @profile.postcode %></p>
+<h1><%= @profile.first_name %> <%= @profile.last_name %></h4>
 
+<div class="profile-container">
+
+<p>Address: <%= @profile.address %></p>
+<p>City: <%= @profile.city %></p>
+<p>State: <%= @profile.state %></p>
+<p>Postcode: <%= @profile.postcode %></p>
+<div class="btn-toolbar">
+  <%# May need to include an or option for rolify admin role%>
+  <%= link_to('Edit Profile', edit_profile_path(@profile), class: 'btn btn-primary') if @profile.user_id == current_user.id %>
+</div>
+</div>

@@ -5,7 +5,7 @@ skip_before_action :verify_authenticity_token
 before_action :list_states, only: [:new, :edit]
 before_action :find_profile, only: [:show, :edit, :update, :destroy]
 
-respond_to :html
+# respond_to :html
 
   def index
     @profiles = Profile.all
@@ -35,12 +35,11 @@ def edit
 end
 
 def update
-  @profile = Profile.find(params[:id])
   if @profile.update(profile_params)
-    flash[:success] = "Successfully updated"    # Optional
+    flash[:success] = "Successfully updated"   
     redirect_to show
   else
-    flash[:error] = "Error"       # Optional
+    flash[:error] = "Error"    
     render :edit
   end
 end
