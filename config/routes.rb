@@ -29,7 +29,7 @@ Rails.application.routes.draw do
   # Bookings where user is item owner
   get 'items/:id/bookings', to: 'bookings#item_bookings', as: 'item_bookings'
 
-  get 'lendees/create', to: 'lendees#create'
+  get 'lendees/create', to: 'lendees#create', as: 'lendee_setup'
 
   get 'pages/index'  
 
