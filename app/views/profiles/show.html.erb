@@ -1,7 +1,7 @@
 <h1><%= @profile.first_name %> <%= @profile.last_name %></p>
 
 <% if request.fullpath == profile_path(current_user.profile.id) %>
-  
+  <%# DAMON! Create an edit button here. Button bar with edit and delete for item. %>
 <% end %>
 
 <p>Email: <%=current_user.email %></p>
