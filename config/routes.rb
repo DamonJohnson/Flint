@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
-  get 'bookings/index'
-  get 'bookings/new'
-  get 'bookings/create'
-  get 'bookings/destroy'
+
+  
   devise_for :users
   
   get 'profiles/new', to: 'profiles#new', as: 'profiles'
@@ -20,7 +18,11 @@ Rails.application.routes.draw do
   post 'items/new', to: 'items#create'
   get 'items/:id/edit', to: 'items#edit', as: 'edit_item'
   patch 'items/:id', to: 'items#update'
-  delete 'items/:id', to: 'items#destroy'
+  
+  get 'items/id:/bookings/new', to: 'bookings#new', as: 'new_booking'
+  get 'items/id:/bookings', to: 'bookings#index', as: 'item_bookings'
+  post 'items/id:/bookings', to: 'bookings#create'
+  delete 'items/id:/bookings/:id', to: 'bookings#delete'
   
   # devise_for :users
   get 'pages/index'  
