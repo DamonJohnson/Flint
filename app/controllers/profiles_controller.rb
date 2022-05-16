@@ -17,13 +17,7 @@ end
 
 def create
   @profile = current_user.build_profile(profile_params)
-  if @profile.save
-    flash[:success] = "Profile saved"
-    redirect_to @profile
-  else
-    flash[:error] = "Error"
-    redirect_to new
-  end
+  @lendee = current_user.build_lendee
 end
 
   def show
@@ -59,5 +53,5 @@ end
    @states = ['New South Wales', 'Victoria', 'Queensland', 'Western Australia', 'South Australia', 'Tasmania', 'Australian Capital Territory', 'Northern Territory']
   end
 
- 
+  
 end

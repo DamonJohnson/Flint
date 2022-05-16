@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  
   devise_for :users
 
   get 'profiles/new', to: 'profiles#new', as: 'profiles'
@@ -29,7 +28,7 @@ Rails.application.routes.draw do
   # Bookings where user is item owner
   get 'items/:id/bookings', to: 'bookings#item_bookings', as: 'item_bookings'
 
-  get 'lendees/create', to: 'lendees#create', as: 'lendee_setup'
+  post 'lendees/create', to: 'lendees#create', as: 'lendee_create'
 
   get 'pages/index'  
 
