@@ -18,11 +18,13 @@ Rails.application.routes.draw do
   post 'items/new', to: 'items#create'
   get 'items/:id/edit', to: 'items#edit', as: 'edit_item'
   patch 'items/:id', to: 'items#update'
+  get 'user/items', to: 'items#user_items', as: 'user_items'
   
-  get 'items/id:/bookings/new', to: 'bookings#new', as: 'new_booking'
-  get 'items/id:/bookings', to: 'bookings#index', as: 'item_bookings'
-  post 'items/id:/bookings', to: 'bookings#create'
-  delete 'items/id:/bookings/:id', to: 'bookings#delete'
+
+  get 'bookings/new', to: 'bookings#new', as: 'new_booking'
+  post 'bookings/new', to: 'bookings#create'
+  delete 'bookings/:id', to: 'bookings#delete'
+  get 'bookings', to: 'bookings#index', as: 'bookings'
   
   # devise_for :users
   get 'pages/index'  
@@ -31,4 +33,3 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "pages#index"
 end
- 

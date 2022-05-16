@@ -1,2 +1,15 @@
-<h1>Bookings#new</h1>
-<p>Find me in app/views/bookings/new.html.erb</p>
+<h2>Confirm Booking Information</h2>
+
+<%= form_with(model: @bookings, data: {turbo: false}) do |f| %>
+  <fieldset class="mb-2">
+    <%= f.label :start_date %>:
+    <%= f.date_field :date %>
+  </fieldset>
+  <fieldset class="mb-2">
+    <%= f.label :end_date %>:
+    <%= f.date_field :end_date %>
+  </fieldset>
+   <fieldset>
+    <%= f.submit class: 'btn btn-primary' %>
+  </fieldset>
+<% end %>

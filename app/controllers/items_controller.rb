@@ -25,7 +25,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    
+   
   end
 
   def update 
@@ -41,6 +41,10 @@ end
   def destroy
     @item.destroy
     redirect_to items_path
+  end
+
+  def user_items
+    @user_items = current_user.items.all
   end
   
   private

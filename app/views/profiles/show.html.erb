@@ -10,6 +10,8 @@
 
 <h1><%= @profile.first_name %> <%= @profile.last_name %></h4>
 
+
+
 <div class="profile-container">
 
 <p>Address: <%= @profile.address %></p>
@@ -17,7 +19,9 @@
 <p>State: <%= @profile.state %></p>
 <p>Postcode: <%= @profile.postcode %></p>
 <div class="btn-toolbar">
-  <%# May need to include an or option for rolify admin role%>
   <%= link_to('Edit Profile', edit_profile_path(@profile), class: 'btn btn-primary') if @profile.user_id == current_user.id %>
+</div>
+<div class="btn-toolbar">
+  <%= link_to('My Listings', user_items_path, class: 'btn btn-primary') if @profile.user_id == current_user.id %>
 </div>
 </div>
