@@ -5,23 +5,20 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_account_update_params, only: [:update]
 
 
-  after_create :create_lendee
-
-   def create_lendee
-    @lendee = Lendee.create
-    @lendee.user_id = @user.id
-    redirect_to lendee_path
-  end
   
   # GET /resource/sign_up
   # def new
   #   super
   # end
 
-  POST /resource
-  def create
-    super
-  end
+  # def profiles_create
+  #   redirect_to profiles_path
+  # end
+
+  # POST /resource
+  # def create
+  #   super
+  # end
 
   # GET /resource/edit
   # def edit

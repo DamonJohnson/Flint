@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   
   devise_for :users
+
   
   get 'profiles/new', to: 'profiles#new', as: 'profiles'
   get 'profiles/:id', to: 'profiles#show', as: 'profile'
@@ -9,7 +10,6 @@ Rails.application.routes.draw do
   patch 'profiles/:id', to: 'profiles#update'
   post 'profiles/new', to: 'profiles#create'
   delete 'profiles/:id', to: 'profiles#destroy'
-
 
 
   get 'items', to: 'items#index', as: 'items'
