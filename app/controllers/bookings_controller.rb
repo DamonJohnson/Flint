@@ -1,6 +1,7 @@
 class BookingsController < ApplicationController
   # REMOVE FOR PRODUCTION!!!
   skip_before_action :verify_authenticity_token
+  before_action :authenticate_user!
   before_action :find_booking, only: [:show, :edit, :update, :destroy, :duration]
 
   def index

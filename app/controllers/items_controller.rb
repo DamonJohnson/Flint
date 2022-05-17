@@ -1,7 +1,8 @@
 class ItemsController < ApplicationController
   # REMOVE FOR PRODUCTION!!!
   skip_before_action :verify_authenticity_token
-  
+  before_action :authenticate_user!, except: [:index]
+  before_action :check_auth
   before_action :get_categories, only: [:new, :edit]
   before_action :set_item, only: [:show, :edit, :update, :destroy]
  
@@ -24,7 +25,6 @@ class ItemsController < ApplicationController
   end
 
   def edit
-   
   end
 
   def update 
@@ -44,6 +44,10 @@ end
 
 
   private
+
+  def check_auth
+    authorize Item
+  end
 
   def set_item
     @item = Item.find(params[:id])
