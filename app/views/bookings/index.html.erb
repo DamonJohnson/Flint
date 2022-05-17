@@ -20,7 +20,8 @@
       <td><%= booking.start_date %> </td>
       <td><%= booking.end_date %> </td>
       <td>$<%= (Item.find(booking.item_id).price)  %>0</td>
-    <td>  <%= link_to('Manage booking', edit_booking_path(id: booking.id, item_id: booking.item_id)) %> </td> 
+      <td><%= link_to('Manage booking', edit_booking_path(booking), class: 'btn btn-warning me-2') %> 
+</td>
     </tr>
     <% end %>
   </tbody>

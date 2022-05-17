@@ -9,6 +9,7 @@ before_action :find_profile, only: [:show, :edit, :update, :destroy]
 
   def index
     @profiles = Profile.all
+   
   end
 
   def new 
@@ -29,6 +30,7 @@ end
   def show
     @profile = Profile.find(params[:id])
     @user_items = current_user.items.all
+    @bookings = current_user.bookings.all
   end
 
 def edit

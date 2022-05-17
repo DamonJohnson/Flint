@@ -22,12 +22,12 @@ Rails.application.routes.draw do
   delete 'items/:id', to: 'items#destroy'
 
   get 'items/:item_id/bookings/new', to: 'bookings#new', as: 'new_booking'
-  patch 'items/:item_id/bookings/:id', to: 'bookings#update'
+  patch 'bookings/:id', to: 'bookings#update'
   post 'items/:item_id/bookings/new', to: 'bookings#create'
-  delete 'bookings/:id', to: 'bookings#delete', as: 'delete_booking'
+  delete 'bookings/:id', to: 'bookings#destroy', as: 'delete_booking'
   get 'bookings', to: 'bookings#index', as: 'bookings'
-  get 'items/:item_id/bookings/:id', to: 'bookings#edit', as: 'edit_booking'
-  # get 'bookings/:id', to: 'bookings#edit', as: 'booking#edit', as: 'edit_booking'
+  get 'bookings/:id', to: 'bookings#edit', as: 'edit_booking'
+
   
   # devise_for :users
   get 'pages/index'  

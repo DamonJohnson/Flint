@@ -3,7 +3,6 @@ class BookingsController < ApplicationController
   skip_before_action :verify_authenticity_token
   before_action :find_booking, only: [:show, :edit, :update, :destroy]
 
-
   def index
     @bookings = current_user.bookings.all
     
@@ -30,11 +29,15 @@ class BookingsController < ApplicationController
   def edit
   end
 
-  def update
-    @booking.update(booking_params)
-    redirect_to bookings_path
-    flash.alert = "Your booking has been updated."
+   def update 
+  if @bookings.update(require_params)
+    flash[:success] = "Successfully updated"   
+    redirect_to edit
+  else
+    flash[:error] = "Error"   
+    render :edit
   end
+end
 
 
   private
@@ -46,6 +49,11 @@ class BookingsController < ApplicationController
   def find_booking
     @booking = Booking.find(params[:id])
   end
+
+  def require_params
+    return params.require(:booking).permit(:user_id, :item_id, :start_date, :end_date)
+  end
+
   
 
 end
