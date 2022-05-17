@@ -13,7 +13,7 @@ before_action :find_profile, only: [:show, :edit, :update, :destroy]
 
   def new 
   @profile = current_user.build_profile
-end
+  end
 
 def create
   @profile = current_user.build_profile(profile_params)
@@ -28,6 +28,7 @@ end
 
   def show
     @profile = Profile.find(params[:id])
+    @user_items = current_user.items.all
   end
 
 def edit

@@ -11,7 +11,6 @@ class ItemsController < ApplicationController
   end
   
   def show
-    @item = Item.find(params[:id])
   end
 
   def new
@@ -43,10 +42,7 @@ end
     redirect_to items_path
   end
 
-  def user_items
-    @user_items = current_user.items.all
-  end
-  
+
   private
 
   def set_item

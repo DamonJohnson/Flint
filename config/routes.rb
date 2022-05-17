@@ -19,12 +19,15 @@ Rails.application.routes.draw do
   get 'items/:id/edit', to: 'items#edit', as: 'edit_item'
   patch 'items/:id', to: 'items#update'
   get 'user/items', to: 'items#user_items', as: 'user_items'
-  
+  delete 'items/:id', to: 'items#destroy'
 
-  get 'bookings/new', to: 'bookings#new', as: 'new_booking'
-  post 'bookings/new', to: 'bookings#create'
-  delete 'bookings/:id', to: 'bookings#delete'
+  get 'items/:item_id/bookings/new', to: 'bookings#new', as: 'new_booking'
+  patch 'items/:item_id/bookings/:id', to: 'bookings#update'
+  post 'items/:item_id/bookings/new', to: 'bookings#create'
+  delete 'bookings/:id', to: 'bookings#delete', as: 'delete_booking'
   get 'bookings', to: 'bookings#index', as: 'bookings'
+  get 'items/:item_id/bookings/:id', to: 'bookings#edit', as: 'edit_booking'
+  # get 'bookings/:id', to: 'bookings#edit', as: 'booking#edit', as: 'edit_booking'
   
   # devise_for :users
   get 'pages/index'  

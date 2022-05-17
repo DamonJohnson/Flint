@@ -1,7 +1,6 @@
-<h2>Confirm Booking Information</h2>
-<h2> <%= @item %> </h2>
+<h2>Manage Booking</h2>
 
-<%= form_with(model: @bookings, data: {turbo: false}) do |f| %>
+<%= form_with model: @booking do |f| %>
   <fieldset class="mb-2">
     <%= f.label :start_date %>:
     <%= f.date_field :start_date %>
@@ -14,3 +13,5 @@
     <%= f.submit class: 'btn btn-primary' %>
   </fieldset>
 <% end %>
+
+
