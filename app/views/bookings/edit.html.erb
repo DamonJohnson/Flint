@@ -6,6 +6,7 @@
       <th scope="col">Daily Fee</th>
       <th scope="col">Hire Date</th>
       <th scope="col">Return Date</th>
+      <th scope="col">Duration (days) </th>
       <th scope="col">Total Fee </th>
     </tr>
   </thead>
@@ -16,7 +17,8 @@
       <td>$<%= Item.find(@booking.item_id).price %>0</td>
       <td><%= @booking.start_date %> </td>
       <td><%= @booking.end_date %> </td>
-      <td>$<%= (Item.find(@booking.item_id).price)  %>0</td>
+      <td><%= duration(@booking) %></td>
+      <td>$<%= total_fee(@booking)  %>0</td>
       <td> <%= button_to('Cancel booking', @bookings, class: 'btn btn-danger', method: :delete, form: { data: { turbo_confirm: "Are you sure you want to cancel the booking?" } }) %>
 </td>
     </tr>
