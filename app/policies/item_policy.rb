@@ -26,6 +26,7 @@ class ItemPolicy
 
   def update?
     return @user.has_role? :owner
+    
   end
 
   def edit?

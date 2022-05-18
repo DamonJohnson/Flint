@@ -9,14 +9,17 @@ class User < ApplicationRecord
   has_many :bookings, dependent: :destroy
   
   
-  # after_create :build_profile
-
-   # def build_profile
-
-  #   @profile = Profile.create
-  #   @profile.user_id = @user.id
-  #   Profile.create(user: self) # Associations must be defined correctly for this syntax, avoids using ID's directly.
+  # New method for default roles has been implemented in create actions
+  # def assign_owner_role
+  #   if self.roles.blank? && self.items != nil 
+  #     self.add_role :owner, Item.where(user_id: self.id)
+  #   end
   # end
-  
+
+  def assign_admin_role
+    if self.email = 'flint@admin.com'
+      self.add_role :admin
+    end
+  end
 
 end
