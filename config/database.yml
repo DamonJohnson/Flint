@@ -81,6 +81,7 @@ test:
 #
 production:
   <<: *default
-  database: flint_production
-  username: flint
-  password: <%= ENV["FLINT_DATABASE_PASSWORD"] %>
+  adapter: postgresql
+  # database: flint_production
+  # username: flint
+  # password: <%= ENV["FLINT_DATABASE_PASSWORD"] %>
